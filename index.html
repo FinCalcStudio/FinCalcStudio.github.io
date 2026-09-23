@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2f4f8" />
+    <meta
+      name="description"
+      content="FinCalc is an offline, multilingual financial mathematics workspace for transparent, reproducible calculations."
+    />
+    <title>FinCalc — Financial math you can audit.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="wordmark" href="#top" aria-label="FinCalc home" data-aria-i18n="logo.aria">
+          <span class="wordmark-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>FinCalc</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#product" data-i18n="nav.product">Product</a>
+          <a href="#workspace" data-i18n="nav.workspace">Workspace</a>
+          <a href="#principles" data-i18n="nav.principles">Principles</a>
+          <a href="#pricing" data-i18n="nav.access">Access</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="language-control" role="group" aria-label="Language">
+            <button class="language-button is-active" type="button" data-lang="en">EN</button>
+            <span aria-hidden="true">·</span>
+            <button class="language-button" type="button" data-lang="de">DE</button>
+            <span aria-hidden="true">·</span>
+            <button class="language-button" type="button" data-lang="fr">FR</button>
+          </div>
+          <a class="button button-small button-ink" href="#pricing" data-i18n="nav.cta">See access</a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation" data-aria-i18n="menu.open">
+            <span></span><span></span>
+            <span class="sr-only">Open navigation</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <nav aria-label="Mobile navigation">
+          <a href="#product" data-i18n="nav.product">Product</a>
+          <a href="#workspace" data-i18n="nav.workspace">Workspace</a>
+          <a href="#principles" data-i18n="nav.principles">Principles</a>
+          <a href="#pricing" data-i18n="nav.access">Access</a>
+        </nav>
+        <a class="button button-ink" href="#pricing" data-i18n="nav.cta">See access</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.eyebrow">Offline · transparent · reproducible</span>
+            </p>
+            <h1 id="hero-title" data-i18n="hero.title">Financial math you can audit.</h1>
+            <p class="hero-dek" data-i18n="hero.dek">
+              A multilingual workspace for calculations you can explain, compare and reproduce.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#product" data-i18n="hero.primary">Start a calculation</a>
+              <a class="text-link" href="#workspace">
+                <span data-i18n="hero.secondary">See the workspace</span>
+                <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="hero-notes" aria-label="Product guarantees">
+              <span><i class="status-dot"></i><span data-i18n="hero.note.one">No account</span></span>
+              <span><i class="status-dot"></i><span data-i18n="hero.note.two">No ads</span></span>
+              <span><i class="status-dot"></i><span data-i18n="hero.note.three">No uploads by default</span></span>
+            </div>
+          </div>
+
+          <div class="hero-demo-wrap reveal reveal-delay-1">
+            <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+            <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+            <div class="demo-window" data-demo-window>
+              <div class="demo-window-topbar">
+                <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                <span class="window-title" data-i18n="demo.windowTitle">FinCalc / Workspace</span>
+                <span class="window-status"><i></i> <span data-i18n="demo.local">local</span></span>
+              </div>
+              <div class="demo-window-body">
+                <div class="demo-heading-row">
+                  <div>
+                    <span class="micro-label" data-i18n="demo.workspaceLabel">Scenario workspace</span>
+                    <h2 data-demo-title>Expansion case</h2>
+                  </div>
+                  <span class="demo-badge" data-i18n="demo.badge">Formula visible</span>
+                </div>
+
+                <div class="demo-tabs" role="tablist" aria-label="Calculation examples">
+                  <button class="demo-tab is-active" type="button" role="tab" aria-selected="true" data-demo-tab="cashflows" data-i18n="demo.tab.cashflows">Cash flows</button>
+                  <button class="demo-tab" type="button" role="tab" aria-selected="false" data-demo-tab="payments" data-i18n="demo.tab.payments">Regular payments</button>
+                  <button class="demo-tab" type="button" role="tab" aria-selected="false" data-demo-tab="rates" data-i18n="demo.tab.rates">Rate conversion</button>
+                </div>
+
+                <div class="demo-main-grid">
+                  <div class="demo-chart-panel">
+                    <div class="chart-meta">
+                      <span class="micro-label" data-i18n="demo.chartLabel" data-demo-chart-label>Cash flow (USD)</span>
+                      <button class="icon-button" type="button" data-replay aria-label="Replay cash-flow animation" data-aria-i18n="replay.aria">↻</button>
+                    </div>
+                    <div class="cash-chart" aria-label="Cash flow timeline" data-aria-i18n="demo.timeline.aria">
+                      <div class="chart-baseline" aria-hidden="true"></div>
+                      <div class="chart-item chart-negative" data-bar="0">
+                        <span class="chart-value">−1.0M</span><span class="bar"></span><span class="chart-period">0</span>
+                      </div>
+                      <div class="chart-item" data-bar="1">
+                        <span class="chart-value">320k</span><span class="bar"></span><span class="chart-period">1</span>
+                      </div>
+                      <div class="chart-item" data-bar="2">
+                        <span class="chart-value">380k</span><span class="bar"></span><span class="chart-period">2</span>
+                      </div>
+                      <div class="chart-item" data-bar="3">
+                        <span class="chart-value">440k</span><span class="bar"></span><span class="chart-period">3</span>
+                      </div>
+                      <div class="chart-item" data-bar="4">
+                        <span class="chart-value">500k</span><span class="bar"></span><span class="chart-period">4</span>
+                      </div>
+                    </div>
+                    <div class="result-strip">
+                      <div>
+                        <span class="micro-label" data-i18n="demo.resultLabel" data-demo-result-label>NPV at discount rate</span>
+                        <strong data-npv aria-live="polite">$277,044</strong>
+                      </div>
+                      <span class="result-mark" aria-hidden="true">↗</span>
+                    </div>
+                  </div>
+
+                  <div class="demo-input-panel">
+                    <div class="demo-input-row">
+                      <span data-i18n="demo.rate" data-demo-rate-label>Discount rate</span>
+                      <strong><span data-rate-label>10.0</span>%</strong>
+                    </div>
+                    <input class="rate-slider" type="range" min="4" max="18" step="0.5" value="10" aria-label="Discount rate" data-rate-slider />
+                    <div class="slider-scale"><span>4%</span><span>18%</span></div>
+                    <div class="demo-input-list">
+                      <div><span>CF<sub>0</sub></span><b class="negative-number">−1,000,000</b></div>
+                      <div><span data-i18n="demo.periods">Periods</span><b data-periods>4</b></div>
+                      <div><span data-i18n="demo.rounding">Rounding</span><b data-i18n="demo.decimals">2 dp</b></div>
+                    </div>
+                    <button class="formula-toggle" type="button" aria-expanded="false" data-formula-toggle>
+                      <span data-i18n="demo.showFormula" data-formula-label>Show formula</span><span aria-hidden="true">+</span>
+                    </button>
+                    <div class="formula-panel" hidden data-formula-panel>
+                      <code>NPV = CF₀ + Σ CFₜ / (1 + i)ᵗ</code>
+                      <p data-i18n="demo.formulaNote">Same inputs, same convention, same result.</p>
+                    </div>
+                  </div>
+                </div>
+                <p class="demo-footnote"><span class="teal-line"></span><span data-i18n="demo.footnote">Results use entered values and selected mathematical conventions.</span></p>
+              </div>
+            </div>
+            <p class="demo-caption"><span>01</span> <span data-i18n="hero.demoCaption">A living preview of the workspace — not a calculator skin.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="boundary-strip" aria-label="Product boundaries">
+        <div class="container boundary-grid">
+          <div class="boundary-item"><span class="boundary-icon">⌁</span><span data-i18n="boundary.one">Runs offline on iPhone + iPad</span></div>
+          <div class="boundary-item"><span class="boundary-icon">∑</span><span data-i18n="boundary.two">Every assumption stays visible</span></div>
+          <div class="boundary-item"><span class="boundary-icon">↗</span><span data-i18n="boundary.three">Copy, compare, and export</span></div>
+          <div class="boundary-item"><span class="boundary-icon">◎</span><span data-i18n="boundary.four">English · Deutsch · Français</span></div>
+        </div>
+      </section>
+
+      <section class="section-pad product-section" id="product" aria-labelledby="product-title">
+        <div class="container">
+          <div class="section-intro reveal">
+            <p class="eyebrow"><span class="eyebrow-number">02</span><span data-i18n="product.eyebrow">The calculation layer</span></p>
+            <h2 id="product-title" data-i18n="product.title">Four ways to think clearly.</h2>
+            <p data-i18n="product.dek">Built around real financial work — with the formula, frequency, timing and rounding policy in the room.</p>
+          </div>
+
+          <div class="module-grid">
+            <article class="module-card module-card-feature reveal reveal-delay-1">
+              <div class="module-card-top"><span class="module-index">01</span><span class="module-icon">PV<span class="slash">/</span>FV</span></div>
+              <h3 data-i18n="module.payments.title">Regular payments</h3>
+              <p data-i18n="module.payments.body">Annuities, loans and savings — solve for the one value you do not know.</p>
+              <div class="module-tags"><span>PV</span><span>FV</span><span>PMT</span><span>N</span><span>i</span></div>
+              <a class="card-link" href="#workspace"><span data-i18n="module.explore">Explore module</span><span>↗</span></a>
+            </article>
+
+            <article class="module-card reveal reveal-delay-2">
+              <div class="module-card-top"><span class="module-index">02</span><span class="module-icon schedule-icon"><i></i><i></i><i></i></span></div>
+              <h3 data-i18n="module.schedule.title">Payment schedule</h3>
+              <p data-i18n="module.schedule.body">Period-by-period principal, interest and balance — with tail adjustments in view.</p>
+              <div class="module-tags"><span>TABLE</span><span>AMORTIZATION</span></div>
+              <a class="card-link" href="#workspace"><span data-i18n="module.explore">Explore module</span><span>↗</span></a>
+            </article>
+
+            <article class="module-card reveal reveal-delay-3">
+              <div class="module-card-top"><span class="module-index">03</span><span class="module-icon flow-icon"><i></i><i></i><i></i><i></i></span></div>
+              <h3 data-i18n="module.cashflows.title">Cash flows</h3>
+              <p data-i18n="module.cashflows.body">Map CF₀…CFₙ, then work through NPV, periodic IRR and MIRR in context.</p>
+              <div class="module-tags"><span>NPV</span><span>IRR</span><span>MIRR</span></div>
+              <a class="card-link" href="#workspace"><span data-i18n="module.explore">Explore module</span><span>↗</span></a>
+            </article>
+
+            <article class="module-card reveal reveal-delay-4">
+              <div class="module-card-top"><span class="module-index">04</span><span class="module-icon rate-icon">i <span>↔</span> r</span></div>
+              <h3 data-i18n="module.rates.title">Rate conversion</h3>
+              <p data-i18n="module.rates.body">Nominal, equivalent and continuous rates — with the mathematical definition alongside the result.</p>
+              <div class="module-tags"><span>NOMINAL</span><span>EQUIVALENT</span><span>CONTINUOUS</span></div>
+              <a class="card-link" href="#workspace"><span data-i18n="module.explore">Explore module</span><span>↗</span></a>
+            </article>
+          </div>
+
+          <div class="boundary-callout reveal">
+            <div class="callout-mark" aria-hidden="true">!</div>
+            <div>
+              <strong data-i18n="boundaryCallout.title">General mathematical calculation.</strong>
+              <p data-i18n="boundaryCallout.body">Results use entered values and selected conventions. Fees, taxes, insurance and product-specific rules are not included.</p>
+            </div>
+            <span class="callout-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad workspace-section" id="workspace" aria-labelledby="workspace-title">
+        <div class="container workspace-grid">
+          <div class="workspace-visual reveal">
+            <div class="device-label"><span class="status-dot"></span><span data-i18n="workspace.previewLabel">Scenario Studio / local</span></div>
+            <div class="device-frame">
+              <div class="device-frame-bezel">
+                <img src="assets/scenario-studio.png" alt="FinCalc Scenario Studio showing an expansion case, cash-flow timeline and scenario comparison" data-alt-i18n="workspace.imageAlt" />
+              </div>
+            </div>
+            <p class="visual-note"><span>02</span> <span data-i18n="workspace.visualNote">A record keeps its context when it leaves the calculator.</span></p>
+          </div>
+
+          <div class="workspace-copy reveal reveal-delay-1">
+            <p class="eyebrow"><span class="eyebrow-number">03</span><span data-i18n="workspace.eyebrow">The workspace layer</span></p>
+            <h2 id="workspace-title" data-i18n="workspace.title">From a number to a record.</h2>
+            <p class="lead" data-i18n="workspace.dek">Build a scenario, compare what changed, and share a result that still explains itself.</p>
+
+            <div class="workflow-list">
+              <div class="workflow-step">
+                <span class="workflow-number">01</span>
+                <div><h3 data-i18n="workflow.build.title">Build</h3><p data-i18n="workflow.build.body">Enter values, choose timing and frequency, and keep the assumptions close to the result.</p></div>
+              </div>
+              <div class="workflow-step">
+                <span class="workflow-number">02</span>
+                <div><h3 data-i18n="workflow.compare.title">Compare</h3><p data-i18n="workflow.compare.body">Duplicate a scenario and see only the assumptions that changed — side by side.</p></div>
+              </div>
+              <div class="workflow-step">
+                <span class="workflow-number">03</span>
+                <div><h3 data-i18n="workflow.share.title">Share</h3><p data-i18n="workflow.share.body">Copy a concise answer or export the full text / CSV record when context matters.</p></div>
+              </div>
+            </div>
+
+            <div class="workspace-actions">
+              <a class="button button-secondary" href="#principles" data-i18n="workspace.primary">See the principles</a>
+              <span class="action-note"><span class="status-dot"></span><span data-i18n="workspace.note">Local by default</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad principles-section" id="principles" aria-labelledby="principles-title">
+        <div class="container">
+          <div class="section-intro narrow reveal">
+            <p class="eyebrow"><span class="eyebrow-number">04</span><span data-i18n="principles.eyebrow">The product contract</span></p>
+            <h2 id="principles-title" data-i18n="principles.title">Clarity is a feature.</h2>
+            <p data-i18n="principles.dek">Financial inputs deserve a calm surface, a traceable method and a clear boundary.</p>
+          </div>
+
+          <div class="principles-grid">
+            <article class="principle-card reveal reveal-delay-1">
+              <span class="principle-glyph">∑</span>
+              <h3 data-i18n="principle.method.title">Method stays visible</h3>
+              <p data-i18n="principle.method.body">Inputs, formula, frequency, payment timing and rounding are part of the result — not footnotes.</p>
+              <code>result = f(inputs, conventions)</code>
+            </article>
+            <article class="principle-card reveal reveal-delay-2">
+              <span class="principle-glyph">⌁</span>
+              <h3 data-i18n="principle.local.title">Local by default</h3>
+              <p data-i18n="principle.local.body">No account, no ads and no default cloud sync. Core calculations and history work in flight mode.</p>
+              <code>device → calculation → record</code>
+            </article>
+            <article class="principle-card reveal reveal-delay-3">
+              <span class="principle-glyph">A·Ä·À</span>
+              <h3 data-i18n="principle.language.title">Language changes expression</h3>
+              <p data-i18n="principle.language.body">English, Deutsch and Français can describe the same record without changing its canonical numbers.</p>
+              <code>EN = DE = FR</code>
+            </article>
+          </div>
+
+          <div class="formula-rail reveal">
+            <div class="formula-rail-label"><span class="status-dot"></span><span data-i18n="formulaRail.label">One input, one definition</span></div>
+            <div class="formula-rail-code">NPV = CF₀ + <span class="sum-symbol">Σ</span> <span class="fraction"><span>CFₜ</span><span>──────</span><span>(1 + i)ᵗ</span></span></div>
+            <p data-i18n="formulaRail.note">Currency changes the display only; no exchange-rate conversion is performed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad access-section" id="pricing" aria-labelledby="access-title">
+        <div class="container access-grid">
+          <div class="access-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-number">05</span><span data-i18n="access.eyebrow">The access model</span></p>
+            <h2 id="access-title" data-i18n="access.title">Useful before it is paid.</h2>
+            <p data-i18n="access.dek">Every P0 calculation is available in the free layer. Full Access buys room for the work around it — not a higher precision answer.</p>
+            <p class="access-footnote"><span class="status-dot"></span><span data-i18n="access.footnote">One-time purchase. No subscription.</span></p>
+          </div>
+
+          <div class="pricing-grid reveal reveal-delay-1">
+            <article class="price-card">
+              <div class="price-card-head"><span class="price-label" data-i18n="price.free.label">Free</span><span class="price-kicker" data-i18n="price.free.kicker">Start here</span></div>
+              <p class="price-copy" data-i18n="price.free.copy">The complete calculation layer, with a focused workspace.</p>
+              <ul class="feature-list">
+                <li data-i18n="price.free.item1">Unlimited P0 calculations</li>
+                <li data-i18n="price.free.item2">Latest 2 history records</li>
+                <li data-i18n="price.free.item3">2 named scenarios</li>
+                <li data-i18n="price.free.item4">English · Deutsch · Français</li>
+                <li data-i18n="price.free.item5">Copy a concise result</li>
+              </ul>
+              <a class="button button-outline" href="#top" data-i18n="price.free.cta">Start calculating</a>
+            </article>
+
+            <article class="price-card price-card-featured">
+              <div class="featured-ribbon" data-i18n="price.full.ribbon">FULL ACCESS</div>
+              <div class="price-card-head"><span class="price-label" data-i18n="price.full.label">Full Access</span><span class="price-kicker" data-i18n="price.full.kicker">More room</span></div>
+              <div class="price-number"><span>US$</span>4.99</div>
+              <p class="price-one-time" data-i18n="price.full.onetime">one-time purchase</p>
+              <ul class="feature-list">
+                <li data-i18n="price.full.item1">Unlimited history and scenarios</li>
+                <li data-i18n="price.full.item2">Unlimited comparison</li>
+                <li data-i18n="price.full.item3">Complete text + CSV export</li>
+                <li data-i18n="price.full.item4">Advanced rounding options</li>
+                <li data-i18n="price.full.item5">Future general math modules</li>
+              </ul>
+              <a class="button button-primary" href="#footer" data-i18n="price.full.cta">See launch details</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad faq-section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-intro narrow reveal">
+            <p class="eyebrow"><span class="eyebrow-number">06</span><span data-i18n="faq.eyebrow">Good boundaries</span></p>
+            <h2 id="faq-title" data-i18n="faq.title">A few clear answers.</h2>
+            <p data-i18n="faq.dek">The shortest path to trust is saying what the product does — and what it deliberately does not.</p>
+          </div>
+          <div class="faq-list reveal reveal-delay-1">
+            <details open>
+              <summary><span data-i18n="faq.q1">What does FinCalc calculate?</span><span class="faq-plus">+</span></summary>
+              <p data-i18n="faq.a1">General financial mathematics: regular payments, payment schedules, equal-period cash flows (NPV, IRR, MIRR) and explicit rate conversions.</p>
+            </details>
+            <details>
+              <summary><span data-i18n="faq.q2">Is it a loan quote or compliance calculator?</span><span class="faq-plus">+</span></summary>
+              <p data-i18n="faq.a2">No. Results are based on entered values and selected mathematical conventions. Fees, taxes, insurance and product-specific or country rules are not included.</p>
+            </details>
+            <details>
+              <summary><span data-i18n="faq.q3">Where is my data stored?</span><span class="faq-plus">+</span></summary>
+              <p data-i18n="faq.a3">The core experience is local and works offline. FinCalc has no account, no ads and no default cloud sync. Export and sharing are explicit user actions.</p>
+            </details>
+            <details>
+              <summary><span data-i18n="faq.q4">What does Full Access unlock?</span><span class="faq-plus">+</span></summary>
+              <p data-i18n="faq.a4">A one-time purchase unlocks unlimited history, scenarios and comparison, plus complete text / CSV export and future general mathematics modules.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta section-pad" aria-labelledby="final-title">
+        <div class="container final-cta-inner reveal">
+          <div>
+            <p class="eyebrow"><span class="status-dot"></span><span data-i18n="final.eyebrow">A calmer way to work with numbers</span></p>
+            <h2 id="final-title" data-i18n="final.title">Build. Compare. Share.</h2>
+          </div>
+          <div class="final-cta-actions">
+            <a class="button button-light" href="#top" data-i18n="final.primary">Start a calculation</a>
+            <span data-i18n="final.note">Made for iPhone + iPad · English · Deutsch · Français</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-top">
+        <div class="footer-brand"><a class="wordmark" href="#top" aria-label="FinCalc home" data-aria-i18n="logo.aria"><span class="wordmark-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>FinCalc</span></a><p data-i18n="footer.tagline">General financial mathematics for clear, reproducible work.</p></div>
+        <div class="footer-links">
+          <a href="#product" data-i18n="nav.product">Product</a>
+          <a href="#principles" data-i18n="nav.principles">Principles</a>
+          <a href="#pricing" data-i18n="nav.access">Access</a>
+          <a href="#faq-title" data-i18n="footer.faq">FAQ</a>
+        </div>
+        <div class="footer-boundary"><span class="status-dot"></span><span data-i18n="footer.boundary">Results are not regulated credit disclosures.</span></div>
+      </div>
+      <div class="container footer-bottom"><span>© <span data-year></span> FinCalc</span><span data-i18n="footer.scope">iPhone + iPad · Local by default</span><span>v0.1 / product preview</span></div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
