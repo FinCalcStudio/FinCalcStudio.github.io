@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10213a" />
+    <meta
+      name="description"
+      content="FinCalc privacy information: local calculation history, Apple StoreKit purchases, and user-controlled exports."
+    />
+    <link rel="canonical" href="https://fincalcstudio.github.io/privacy.html" />
+    <title>FinCalc Privacy</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --canvas: #f2f4f8;
+        --paper: #fff;
+        --ink: #10213a;
+        --ink-soft: #405675;
+        --muted: #6b7f9e;
+        --line: #d9e0e8;
+        --teal: #0f8f90;
+        --teal-pale: #e3f2f2;
+        --sans: "DM Sans", "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; min-width: 320px; background: var(--canvas); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+      a { color: var(--teal); text-underline-offset: 3px; }
+      a:hover { color: #087779; }
+      :focus-visible { outline: 3px solid rgba(15, 143, 144, .35); outline-offset: 3px; }
+      .skip-link { position: absolute; left: 12px; top: -50px; z-index: 5; padding: 8px 12px; border-radius: 8px; background: var(--ink); color: #fff; }
+      .skip-link:focus { top: 12px; }
+      .shell { width: min(920px, calc(100% - 40px)); margin: 0 auto; }
+      .site-header { background: var(--ink); color: #fff; }
+      .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .wordmark { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; letter-spacing: -.02em; text-decoration: none; }
+      .mark { display: inline-flex; align-items: end; gap: 3px; height: 21px; }
+      .mark i { display: block; width: 5px; border-radius: 4px 4px 1px 1px; background: #55c3c0; }
+      .mark i:nth-child(1) { height: 9px; opacity: .7; }
+      .mark i:nth-child(2) { height: 15px; }
+      .mark i:nth-child(3) { height: 21px; background: #f58b7e; }
+      .back-link { color: #dbe6f0; font-size: .92rem; text-decoration: none; }
+      .back-link:hover { color: #fff; }
+      .hero { padding: 70px 0 58px; background: linear-gradient(135deg, #10213a 0%, #173457 72%, #145f67 100%); color: #fff; }
+      .eyebrow { margin: 0 0 14px; color: #8fdad6; font: 500 .76rem/1.2 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+      h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(2.35rem, 6vw, 4.25rem); }
+      .hero p:not(.eyebrow) { max-width: 680px; margin: 22px 0 0; color: #dce8f3; font-size: 1.12rem; }
+      main { padding: 54px 0 78px; }
+      .updated { margin: 0 0 34px; color: var(--muted); font: .82rem var(--mono); }
+      .intro { margin-bottom: 36px; }
+      h2 { margin: 0 0 10px; font-size: clamp(1.75rem, 3vw, 2.4rem); }
+      h3 { margin: 0 0 8px; font-size: 1.17rem; }
+      p { margin: 0 0 15px; color: var(--ink-soft); }
+      p:last-child { margin-bottom: 0; }
+      .privacy-list { display: grid; gap: 16px; }
+      .card { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); box-shadow: 0 10px 30px rgba(26, 48, 74, .05); }
+      .card-accent { border-top: 4px solid var(--teal); }
+      .card ul { margin: 0; padding-left: 21px; color: var(--ink-soft); }
+      .card li + li { margin-top: 8px; }
+      .highlight { margin: 30px 0; padding: 20px 22px; border: 1px solid #c4e6e4; border-radius: 14px; background: #edf7f7; }
+      .highlight strong { color: var(--ink); }
+      footer { padding: 28px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+      footer p { margin: 0; }
+      footer a { color: var(--ink-soft); }
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 28px, 620px); }
+        .header-inner { min-height: 64px; }
+        .back-link { font-size: .82rem; }
+        .hero { padding: 56px 0 44px; }
+        main { padding: 40px 0 60px; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to privacy information</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./" aria-label="FinCalc privacy home">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>FinCalc Privacy</span>
+        </a>
+        <a class="back-link" href="support.html">Support</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="shell">
+        <p class="eyebrow">FinCalc Studio · Privacy</p>
+        <h1 id="page-title">Your calculations stay on your device by default.</h1>
+        <p>FinCalc is a local-first financial mathematics workspace for iPhone and iPad. This page explains what the app stores, what Apple processes for purchases, and what happens when you export a record.</p>
+      </div>
+    </section>
+
+    <main id="main" class="shell">
+      <p class="updated">Last updated: 30 September 2026</p>
+      <section class="intro" aria-labelledby="summary-title">
+        <h2 id="summary-title">Privacy summary</h2>
+        <p>FinCalc does not require a FinCalc account. Core calculations and saved history work offline and are stored locally in the app's Application Support data. FinCalc has no advertising and does not send financial inputs to a FinCalc analytics service.</p>
+      </section>
+
+      <div class="privacy-list">
+        <section class="card card-accent" aria-labelledby="stored-title">
+          <h3 id="stored-title">Information stored on your device</h3>
+          <ul>
+            <li>Calculation inputs, scenarios, history records, selected conventions, and results are stored locally so the app can work offline.</li>
+            <li>Preferences such as the selected app language are stored locally to keep the interface consistent between launches.</li>
+            <li>FinCalc has no FinCalc account, default cloud sync, advertising SDK, or financial-input analytics.</li>
+          </ul>
+        </section>
+
+        <section class="card" aria-labelledby="storekit-title">
+          <h3 id="storekit-title">In-App Purchases</h3>
+          <p>Apple processes payment, purchase, and restore transactions through StoreKit and the App Store. FinCalc does not receive or store your payment card details. The app uses Apple's transaction result to determine whether Full Access is unlocked.</p>
+          <p>For billing questions, refunds, or an App Store transaction problem, use Apple's purchase support. For an app issue, use the <a href="support.html">FinCalc support page</a>.</p>
+        </section>
+
+        <section class="card" aria-labelledby="export-title">
+          <h3 id="export-title">Exports and sharing</h3>
+          <p>Text and CSV exports are created only when you choose an export or share action. An export can contain the financial inputs, assumptions, conventions, and results that you entered. Review the file before sharing it with another person or app.</p>
+          <p>Once you send a file to another app, service, or recipient, that destination's privacy policy applies to the copy it receives.</p>
+        </section>
+
+        <section class="card" aria-labelledby="delete-title">
+          <h3 id="delete-title">Deleting your data</h3>
+          <p>Use FinCalc's history or workspace controls to delete saved calculation records. You can also remove exported text or CSV files from the location where you saved or shared them. Deleting the app removes its local container according to iOS or iPadOS behavior; copies made outside the app are managed by the destination where you placed them.</p>
+        </section>
+
+        <section class="card" aria-labelledby="website-title">
+          <h3 id="website-title">This website and support requests</h3>
+          <p>This static website does not ask for a FinCalc account and has no FinCalc advertising or financial-input form. If you choose the GitHub support-request link, GitHub may require an account and its own privacy policy applies to the information you submit there. Please do not include bank details or other sensitive financial information in a support request.</p>
+        </section>
+      </div>
+
+      <div class="highlight">
+        <strong>Questions or corrections?</strong>
+        <p>Read the <a href="support.html">FinCalc Support page</a> for troubleshooting and purchase-restore steps. If this privacy information does not answer your question, use the support request link there.</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="shell">
+        <p>© <span id="year"></span> FinCalc Studio · <a href="support.html">Support</a> · <a href="./">fincalcstudio.github.io</a></p>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
