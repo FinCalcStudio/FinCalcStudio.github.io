@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10213a" />
+    <meta
+      name="description"
+      content="FinCalc support: answers about purchases, language settings, local data, exports, and troubleshooting."
+    />
+    <link rel="canonical" href="https://fincalcstudio.github.io/support.html" />
+    <title>FinCalc Support</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --canvas: #f2f4f8;
+        --paper: #fff;
+        --ink: #10213a;
+        --ink-soft: #405675;
+        --muted: #6b7f9e;
+        --line: #d9e0e8;
+        --teal: #0f8f90;
+        --teal-pale: #e3f2f2;
+        --coral-pale: #fff0ed;
+        --sans: "DM Sans", "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--canvas);
+        color: var(--ink);
+        font: 16px/1.6 var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--teal); text-underline-offset: 3px; }
+      a:hover { color: #087779; }
+      :focus-visible { outline: 3px solid rgba(15, 143, 144, .35); outline-offset: 3px; }
+      .skip-link { position: absolute; left: 12px; top: -50px; padding: 8px 12px; border-radius: 8px; background: var(--ink); color: #fff; z-index: 5; }
+      .skip-link:focus { top: 12px; }
+      .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      .site-header { background: var(--ink); color: #fff; }
+      .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .wordmark { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; letter-spacing: -.02em; text-decoration: none; }
+      .mark { display: inline-flex; align-items: end; gap: 3px; height: 21px; }
+      .mark i { display: block; width: 5px; border-radius: 4px 4px 1px 1px; background: #55c3c0; }
+      .mark i:nth-child(1) { height: 9px; opacity: .7; }
+      .mark i:nth-child(2) { height: 15px; }
+      .mark i:nth-child(3) { height: 21px; background: #f58b7e; }
+      .back-link { color: #dbe6f0; font-size: .92rem; text-decoration: none; }
+      .back-link:hover { color: #fff; }
+      .hero { padding: 78px 0 62px; background: linear-gradient(135deg, #10213a 0%, #173457 72%, #145f67 100%); color: #fff; }
+      .eyebrow { margin: 0 0 14px; color: #8fdad6; font: 500 .76rem/1.2 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+      h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(2.45rem, 6vw, 4.7rem); }
+      .hero p:not(.eyebrow) { max-width: 680px; margin: 22px 0 0; color: #dce8f3; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 30px; }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 17px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+      .button-primary { background: #70d2cf; color: #10213a; }
+      .button-primary:hover { background: #9be3df; color: #10213a; }
+      .button-quiet { color: #dce8f3; border: 1px solid rgba(255,255,255,.36); }
+      .button-quiet:hover { color: #fff; border-color: #fff; }
+      main { padding: 62px 0 84px; }
+      .notice { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; margin-bottom: 34px; padding: 20px 22px; border: 1px solid #f4b0a5; border-radius: 14px; background: var(--coral-pale); }
+      .notice-icon { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #f5614f; color: #fff; font-weight: 700; }
+      .notice p { margin: 0; color: var(--ink-soft); }
+      .notice strong { color: var(--ink); }
+      .section-heading { max-width: 720px; margin-bottom: 24px; }
+      h2 { margin: 0 0 10px; font-size: clamp(1.8rem, 3vw, 2.55rem); }
+      .section-heading p { margin: 0; color: var(--ink-soft); }
+      .support-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 68px; }
+      .card { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); box-shadow: 0 10px 30px rgba(26, 48, 74, .05); }
+      .card h3 { margin: 0 0 8px; font-size: 1.2rem; }
+      .card p { margin: 0 0 16px; color: var(--ink-soft); }
+      .card p:last-child { margin-bottom: 0; }
+      .card ul { margin: 0; padding-left: 20px; color: var(--ink-soft); }
+      .card li + li { margin-top: 7px; }
+      .card-accent { border-top: 4px solid var(--teal); }
+      .steps { counter-reset: support-step; margin: 0; padding: 0; list-style: none; }
+      .steps li { counter-increment: support-step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+      .steps li + li { margin-top: 14px; }
+      .steps li::before { content: counter(support-step); display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--teal-pale); color: var(--teal); font: 500 .8rem/1 var(--mono); }
+      .steps strong { display: block; margin-bottom: 2px; }
+      .steps span { color: var(--ink-soft); }
+      .faq-section { margin-top: 8px; }
+      .faq-list { border-top: 1px solid var(--line); }
+      details { border-bottom: 1px solid var(--line); }
+      summary { display: flex; justify-content: space-between; gap: 20px; padding: 19px 0; cursor: pointer; font-weight: 700; list-style: none; }
+      summary::-webkit-details-marker { display: none; }
+      summary::after { content: "+"; color: var(--teal); font: 500 1.3rem/1 var(--mono); }
+      details[open] summary::after { content: "−"; }
+      details p { max-width: 780px; margin: -5px 38px 20px 0; color: var(--ink-soft); }
+      .data-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 68px 0; }
+      .data-grid .card { background: #edf7f7; border-color: #c4e6e4; }
+      code { padding: 2px 5px; border-radius: 4px; background: rgba(16, 33, 58, .08); font: .9em var(--mono); }
+      footer { padding: 28px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+      footer p { margin: 0; }
+      footer a { color: var(--ink-soft); }
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 28px, 620px); }
+        .header-inner { min-height: 64px; }
+        .back-link { font-size: .82rem; }
+        .hero { padding: 58px 0 48px; }
+        main { padding: 42px 0 62px; }
+        .support-grid, .data-grid { grid-template-columns: 1fr; margin-bottom: 46px; }
+        .data-grid { margin-top: 46px; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to support content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./" aria-label="FinCalc support home">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>FinCalc Support</span>
+        </a>
+        <a class="back-link" href="./">Back to FinCalc</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="shell">
+        <p class="eyebrow">Support center · FinCalc Studio</p>
+        <h1 id="page-title">Clear answers for your calculations.</h1>
+        <p>Find help with Full Access, restore a purchase, change the app language, export a record, or report a calculation problem.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/FinCalcStudio/FinCalcStudio.github.io/issues">Open support requests ↗</a>
+          <a class="button button-quiet" href="#faq">Read the FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <main id="main" class="shell">
+      <aside class="notice" aria-label="How to contact support">
+        <span class="notice-icon" aria-hidden="true">?</span>
+        <p><strong>Need to contact us?</strong> Use the <a href="https://github.com/FinCalcStudio/FinCalcStudio.github.io/issues">FinCalc support request page</a>. Include your app version, iPhone or iPad model, iOS or iPadOS version, selected language, and the calculation type. Please do not include bank details or other sensitive financial information. A GitHub account is required to submit a request.</p>
+      </aside>
+
+      <section aria-labelledby="quick-help-title">
+        <div class="section-heading">
+          <h2 id="quick-help-title">Start with the task you need.</h2>
+          <p>These short guides cover the most common questions about the app.</p>
+        </div>
+        <div class="support-grid">
+          <article class="card card-accent">
+            <h3>Restore Full Access</h3>
+            <ol class="steps">
+              <li><div><strong>Open Settings</strong><span>Choose the Settings tab in FinCalc.</span></div></li>
+              <li><div><strong>Choose Full Access</strong><span>Tap <em>Restore purchase</em>.</span></div></li>
+              <li><div><strong>Use the same Apple Account</strong><span>StoreKit can restore a purchase only for the Apple Account that made it.</span></div></li>
+            </ol>
+            <p style="margin-top:16px">Purchase billing and refunds are handled by Apple. If restore does not finish, check your network connection, confirm the account, and try again after the App Store is available.</p>
+          </article>
+          <article class="card">
+            <h3>Change language</h3>
+            <p>In FinCalc, open <strong>Settings → Language</strong> and choose English, Deutsch, or Français. The selected language changes labels and formatting while keeping a saved calculation's canonical values intact.</p>
+            <p>The product site has the same language choices in its header. Use the language you prefer when writing a support request.</p>
+          </article>
+          <article class="card">
+            <h3>Export a calculation</h3>
+            <p>From a saved record or scenario, choose the export action and select text or CSV. The export includes the inputs, selected conventions, and result so another person can reproduce the calculation.</p>
+            <p>Exports are explicit user actions. Review the file before sharing because it may contain the financial values you entered.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="faq-section" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p>FinCalc is a general financial mathematics workspace. It does not provide a regulated loan quote or country-specific advice.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>What does FinCalc calculate?</summary>
+            <p>Regular payments, payment schedules, equal-period cash flows such as NPV, IRR, and MIRR, and explicit rate conversions. Results use the values and mathematical conventions you enter.</p>
+          </details>
+          <details>
+            <summary>Why does a result differ from another calculator?</summary>
+            <p>Check the timing, payment frequency, rate convention, sign of each cash flow, and rounding setting. FinCalc keeps these assumptions visible so you can compare them. A support request should include those settings and the smallest example that reproduces the difference.</p>
+          </details>
+          <details>
+            <summary>Where are my calculations stored?</summary>
+            <p>Core calculations and history are stored locally in the app's Application Support data. FinCalc has no account, no default cloud sync, and no advertising. Export and sharing occur only when you choose those actions. You can delete saved records from the app's history or workspace controls.</p>
+          </details>
+          <details>
+            <summary>Does FinCalc need an internet connection?</summary>
+            <p>The calculation and history features are designed to work offline. An internet connection may be needed for App Store purchase or restore verification and for actions that leave the device, such as sharing an export.</p>
+          </details>
+          <details>
+            <summary>What information should I include in a bug report?</summary>
+            <p>Include the app version, device model, iOS or iPadOS version, app language, calculator module, input values using fictional data, expected result, actual result, and a screenshot if it does not reveal private information. Never post bank-account numbers, names, addresses, or other sensitive data.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="data-grid" aria-label="Data and privacy summary">
+        <article class="card">
+          <h3>Your data stays in your control</h3>
+          <p>FinCalc stores calculation history locally by default. There is no FinCalc account, cloud sync, advertising, or financial-input analytics. A CSV or text export is a file you choose to create and share.</p>
+        </article>
+        <article class="card">
+          <h3>Still need help?</h3>
+          <p><a href="https://github.com/FinCalcStudio/FinCalcStudio.github.io/issues">Open a support request ↗</a> and include the troubleshooting details above. We will use the information you provide only to understand and answer the request.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">
+        <p>© <span id="year"></span> FinCalc Studio · <a href="privacy.html">Privacy</a> · <a href="./">fincalcstudio.github.io</a></p>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
